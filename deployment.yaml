@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: magic-8-ball
+  labels:
+    app: magic-8-ball
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: magic-8-ball
+  template:
+    metadata:
+      labels:
+        app: magic-8-ball
+    spec:
+      containers:
+        - name: magic-8-ball
+          image: registry.digitalocean.com/ottdc6030-lab8/lab8:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
